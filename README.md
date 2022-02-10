@@ -1,4 +1,6 @@
-# go-data-structures-algorithms
-go语言的数据结构及算法
+# go/c++-data-structures-algorithms
+go/c++的数据结构及算法  
+
+
 
 
