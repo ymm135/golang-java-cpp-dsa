@@ -1,5 +1,5 @@
-# go/c++-data-structures-algorithms
-go/c++的数据结构及算法  
+# go/java/c++-data-structures-algorithms
+go/java/c++的数据结构及算法  
 
 [参考书籍《算法第4版》](https://algs4.cs.princeton.edu/), 源码目录[algs4-master](code/algs4-master)  
 
