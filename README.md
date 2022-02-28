@@ -1,15 +1,21 @@
 # go/java/c++-data-structures-algorithms
 go/java/c++的数据结构及算法  
 
-[参考书籍《算法第4版》](https://algs4.cs.princeton.edu/), 源码目录[algs4-master](code/algs4-master)  
+[参考书籍《算法第4版》](https://algs4.cs.princeton.edu/), 源码目录[algs4-master](code/algs4-master)   
+[普林斯顿大学教学视频地址,如果有需要可以留下邮箱，发送我自己的账号体验下](https://cuvids.io/app/course/2/)  
 
 ## 目录  
 - 第1章  基础
-  - [ ] 1.1 [基础编程模型]()  
-  - [ ] 1.2 [数据抽象]()  
-  - [ ] 1.3 [背包、队列和栈]()  
-  - [ ] 1.4 [算法分析]()  
-  - [ ] 1.5 [案例研究：union-find算法]()  
+  - [x] 1.1 [数组(Array)](md/1-base/1-1_array.md)
+  - [x] 1.2 [链表(Linked List)](md/1-base/1-2_link.md)
+  - [x] 1.3 [队列(Queue)](md/1-base/1-3_queue.md)
+  - [x] 1.4 [栈(Stack)](md/1-base/1-4_stack.md)
+  - [x] 1.5 [堆(Heap)](md/1-base/1-5_heap.md)
+  - [x] 1.6 [散列表(Hash table)](md/1-base/1-6_hash.md)
+  - [x] 1.7 [树(Tree)](md/1-base/1-7_tree.md)
+  - [x] 1.8 [图(Graph)](md/1-base/1-8_array.md)
+  - [ ] 1.9 [算法分析](md/1-base/1-9_O.md)  
+  - [ ] 1.10 [案例研究：union-find算法](md/1-base/1-10_union-find.md)  
 - 第2章　 排序
   - [ ] 2.1 [初级排序算法]()  
   - [ ] 2.2 [归并排序]()  
@@ -31,8 +37,3 @@ go/java/c++的数据结构及算法
   - [ ] 5.3 [子字符串查找]()  
   - [ ] 5.4 [正则表达式]()  
   - [ ] 5.5 [数据压缩]()  
-
-
-
-
-
