@@ -4,6 +4,8 @@ go/java/c++的数据结构及算法
 [参考书籍《算法第4版》](https://algs4.cs.princeton.edu/), 源码目录[algs4-master](code/algs4-master)   
 [普林斯顿大学教学视频地址,如果有需要可以留下邮箱，发送我自己的账号体验下](https://cuvids.io/app/course/2/)  
 
+### [设计模式](md/design-pattern/README.md)  
+
 ## 目录  
 - 第1章  基础
   - [x] 1.1 [数组(Array)](md/1-base/1-1_array.md)

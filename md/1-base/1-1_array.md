@@ -9,7 +9,7 @@
 </div>
 <br>
 
-c++ 数组基本使用  
+### c++ 数组基本使用  
 ```c++
 #include <iostream>
 #include <vector>
@@ -62,7 +62,7 @@ int main()
 ```
 
 
-java 数组基本使用  
+### java 数组基本使用  
 ```java
     public static void main(String[] args) {
         // 静态初始化, 编译器根据元素个数确定长度
@@ -140,7 +140,7 @@ SourceFile: "JavaDemo.java"
 
 > vscode使用`JVM Bytecode Viewer`插件，在`.class`文件右击，选择查看字节码即可。 idea点击菜单栏`View>>Show ByteCode`即可, 使用`jclasslib`插件查看字节码更加清晰    
 
-go 数组基本使用  
+### go 数组基本使用  
 ```go
      1:	package main
      2:	
@@ -184,8 +184,171 @@ go 数组基本使用
 - 在实际的编程中，往往会发生这种情况，即所需的内存空间取决于实际输入的数据，而无法预先确定。  
 - 静态数组的长度是预先定义好的，在整个程序中，一旦给定大小后就无法改变。而动态数组则不然，它可以随程序需要而重新指定大小。  
 
+### C++动态数组  
 
-### 动态数组的扩容和缩容  
+向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）
+跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。  
+
+```c++
+#include <iostream>  
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector<int> vi = {1,2,3,4,5,6,7,8};
+    cout << "size:" << vi.size() << ",cap:" << vi.capacity() << "" << endl;
+
+    vi.push_back(9);
+    cout << "size:" << vi.size() << ",cap:" << vi.capacity() << "" << endl;
+
+    vector<int>::iterator it;
+    for (it = vi.begin(); it != vi.end(); it++)
+    {
+        cout << *it << " ";
+    }
+    
+    return 0;
+}
+```
+
+输出日志:  
+```shell
+size:8,cap:8
+size:9,cap:16   # 容量变化一倍
+1 2 3 4 5 6 7 8 9 
+```  
+
+> 从stl实现来看，扩容是按照2倍扩容，微软实现的扩容策略是: `_Capacity = _Capacity + _Capacity / 2`    
+
+另外从动态数组的创建汇编实现中可以看出与空间配置器(allocator)有关:  
+```c++
+	    vector<int> vi = {1,2,3,4,5,6,7,8};
+   0x0000000000400c0a <+13>:	lea    rax,[rbp-0x35]
+   0x0000000000400c0e <+17>:	mov    rdi,rax
+   0x0000000000400c11 <+20>:	call   0x400e70 <std::allocator<int>::allocator()>
+   0x0000000000400c16 <+25>:	mov    r12d,0x401f40
+   0x0000000000400c1c <+31>:	mov    r13d,0x8
+   0x0000000000400c22 <+37>:	lea    rdi,[rbp-0x35]
+   0x0000000000400c26 <+41>:	mov    rcx,r12
+   0x0000000000400c29 <+44>:	mov    rbx,r13
+   0x0000000000400c2c <+47>:	mov    rax,r12
+   0x0000000000400c2f <+50>:	mov    rdx,r13
+   0x0000000000400c32 <+53>:	mov    rsi,rcx
+   0x0000000000400c35 <+56>:	lea    rax,[rbp-0x50]
+   0x0000000000400c39 <+60>:	mov    rcx,rdi
+   0x0000000000400c3c <+63>:	mov    rdi,rax
+   0x0000000000400c3f <+66>:	call   0x400efe <std::vector<int, std::allocator<int> >::vector(std::initializer_list<int>, std::allocator<int> const&)>
+   0x0000000000400c44 <+71>:	lea    rax,[rbp-0x35]
+   0x0000000000400c48 <+75>:	mov    rdi,rax
+   0x0000000000400c4b <+78>:	call   0x400e8a <std::allocator<int>::~allocator()>
+``` 
+
+### Java动态数组  
+
+Java动态数组ArrayList的底层数据结构依赖于数组:  
+```java
+    /**
+     * The array buffer into which the elements of the ArrayList are stored.
+     * The capacity of the ArrayList is the length of this array buffer. Any
+     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
+     * will be expanded to DEFAULT_CAPACITY when the first element is added.
+     */
+    transient Object[] elementData; // non-private to simplify nested class access
+```
+
+扩容的策略是`int newCapacity = oldCapacity + (oldCapacity >> 1)`, 也就是`newCap = oldCap + (oldCap / 2)`, 和C++ Vector扩容策略一样    
+```java
+    private void grow(int minCapacity) {
+        // overflow-conscious code
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+```
+
+示例代码:  
+```java
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+// java demo 
+public class JavaDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al = new ArrayList<>();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+
+        System.out.println(al.size());
+    }
+}
+```
+
+
+### Go动态数组  
+Go语言中切片也可以看做是动态数组，随着容量不断变化，也会有扩缩容的策略  
+
+从`growslice`可以看出扩容逻辑，如果从容量小于1024，那就扩容至2倍，如果容量已经大于1024,容量将会编程 `newcap += newcap / 4`  
+```go
+func growslice(et *_type, old slice, cap int) slice {
+  ...
+  newcap := old.cap
+	doublecap := newcap + newcap
+	if cap > doublecap {
+		newcap = cap
+	} else {
+		if old.cap < 1024 {
+			newcap = doublecap
+		} else {
+			// Check 0 < newcap to detect overflow
+			// and prevent an infinite loop.
+			for 0 < newcap && newcap < cap {
+				newcap += newcap / 4
+			}
+			// Set newcap to the requested cap when
+			// the newcap calculation overflowed.
+			if newcap <= 0 {
+				newcap = cap
+			}
+		}
+	}
+  ...
+}
+```
+
+示例代码:  
+```
+func main() {
+	var s []int
+	s = append(s, 1)
+	s = append(s, 2)
+	s = append(s, 3)
+	s = append(s, 4)
+	s = append(s, 5)
+	s = append(s, 6)
+	s = append(s, 7)
+	s = append(s, 8)
+	fmt.Println(len(s), cap(s))
+
+	s = append(s, 9)
+	fmt.Println(len(s), cap(s))
+}
+```
+
+打印输出:  
+```
+8 8
+9 16
+```
+
+
+
 
 
 
