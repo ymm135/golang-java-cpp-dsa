@@ -10,12 +10,12 @@ go/java/c++的数据结构及算法
 - 第1章  基础
   - [x] 1.1 [数组(Array)](md/1-base/1-1_array.md)
   - [x] 1.2 [链表(Linked List)](md/1-base/1-2_link.md)
-  - [x] 1.3 [队列(Queue)](md/1-base/1-3_queue.md)
-  - [x] 1.4 [栈(Stack)](md/1-base/1-4_stack.md)
-  - [x] 1.5 [堆(Heap)](md/1-base/1-5_heap.md)
-  - [x] 1.6 [散列表(Hash table)](md/1-base/1-6_hash.md)
-  - [x] 1.7 [树(Tree)](md/1-base/1-7_tree.md)
-  - [x] 1.8 [图(Graph)](md/1-base/1-8_array.md)
+  - [ ] 1.3 [队列(Queue)](md/1-base/1-3_queue.md)
+  - [ ] 1.4 [栈(Stack)](md/1-base/1-4_stack.md)
+  - [ ] 1.5 [堆(Heap)](md/1-base/1-5_heap.md)
+  - [ ] 1.6 [散列表(Hash table)](md/1-base/1-6_hash.md)
+  - [ ] 1.7 [树(Tree)](md/1-base/1-7_tree.md)
+  - [ ] 1.8 [图(Graph)](md/1-base/1-8_array.md)
   - [ ] 1.9 [算法分析](md/1-base/1-9_O.md)  
   - [ ] 1.10 [案例研究：union-find算法](md/1-base/1-10_union-find.md)  
 - 第2章　 排序
