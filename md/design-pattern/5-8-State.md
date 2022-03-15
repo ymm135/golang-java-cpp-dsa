@@ -9,7 +9,7 @@
 
 <br>
 <div align=center>
-    <img src="../../res/1-base/有限状态机.png" width="65%" height="65%" title="有限状态机" />
+    <img src="../../res/dp/有限状态机.png" width="65%" height="65%" title="有限状态机" />
 </div>
 <div align="center">
     <font face="黑体" color=gray size=3>有限状态机</font> 
@@ -26,7 +26,7 @@
 
 <br>
 <div align="center">
-    <img src="../../res/1-base/problem-state.png" width="65%" height="65%" title="文档对象的全部状态和转移"/>
+    <img src="../../res/dp/problem-state.png" width="65%" height="65%" title="文档对象的全部状态和转移"/>
 </div>
 <div align="center">
     <font color=gray size=3>文档对象的全部状态和转移</font> 
@@ -67,7 +67,7 @@ class Document is
 
 <br>
 <div align="center">
-    <img src="../../res/1-base/solution-state.png" width="70%" height="70%" title="文档对象的全部状态和转移"/>
+    <img src="../../res/dp/solution-state.png" width="70%" height="70%" title="文档对象的全部状态和转移"/>
 </div>
 <div align="center">
     <font color=gray size=3>文档将工作委派给一个状态对象</font> 
@@ -82,7 +82,7 @@ class Document is
 
 <br>
 <div align="center">
-    <img src="../../res/1-base/structure-state.png" width="70%" height="70%" title="文档对象的全部状态和转移"/>
+    <img src="../../res/dp/structure-state.png" width="70%" height="70%" title="文档对象的全部状态和转移"/>
 </div>
 <div align="center">
     <font color=gray size=3> 状态模式结构 </font> 
@@ -99,7 +99,7 @@ class Document is
 
 <br>
 <div align="center">
-    <img src="../../res/1-base/example-state.png" width="70%" height="70%" title="使用状态对象更改对象行为的示例"/>
+    <img src="../../res/dp/example-state.png" width="70%" height="70%" title="使用状态对象更改对象行为的示例"/>
 </div>
 <div align="center">
     <font color=gray size=3> 使用状态对象更改对象行为的示例 </font> 
